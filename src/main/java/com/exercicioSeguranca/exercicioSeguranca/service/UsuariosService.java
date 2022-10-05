@@ -1,6 +1,6 @@
 package com.exercicioSeguranca.exercicioSeguranca.service;
 
-import com.exercicioSeguranca.exercicioSeguranca.model.RespostaUsuariosModel;
+import com.exercicioSeguranca.exercicioSeguranca.model.DtoUsuariosmodel;
 import com.exercicioSeguranca.exercicioSeguranca.model.UsuariosModel;
 import com.exercicioSeguranca.exercicioSeguranca.repository.UsuariosRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ public class UsuariosService {
         return new BCryptPasswordEncoder();
     }
 
-    public List<RespostaUsuariosModel> buscarTudo(){
+    public List<DtoUsuariosmodel> buscarTudo(){
         List<UsuariosModel> buscarUsuarios = usuariosRepository.findAll();
-        return buscarUsuarios.stream().map(retorno1 -> new RespostaUsuariosModel(retorno1.getNome(),retorno1.getLogin(),retorno1.getSenha())).collect(Collectors.toList());
+        return buscarUsuarios.stream().map(retorno1 -> new DtoUsuariosmodel(retorno1.getNome(),retorno1.getLogin(),retorno1.getSenha())).collect(Collectors.toList());
     }
 
     public UsuariosModel cadastroUsers(UsuariosModel usuariosModel){

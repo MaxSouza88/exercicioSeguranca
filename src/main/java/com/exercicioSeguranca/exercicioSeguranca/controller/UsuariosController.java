@@ -1,6 +1,6 @@
 package com.exercicioSeguranca.exercicioSeguranca.controller;
 
-import com.exercicioSeguranca.exercicioSeguranca.model.RespostaUsuariosModel;
+import com.exercicioSeguranca.exercicioSeguranca.model.DtoUsuariosmodel;
 import com.exercicioSeguranca.exercicioSeguranca.model.UsuariosModel;
 import com.exercicioSeguranca.exercicioSeguranca.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class UsuariosController {
     private UsuariosService usuariosService;
 
     @GetMapping(path = "/usuarios")
-    public ResponseEntity<List<RespostaUsuariosModel>> buscarTudo () {
+    public ResponseEntity<List<DtoUsuariosmodel>> buscarTudo () {
         return ResponseEntity.ok(usuariosService.buscarTudo());
     }
 
